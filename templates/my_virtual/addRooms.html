@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="addRooms.css">
+        <title>add_venues</title>
+    </head>
+    <body>
+        <script>
+            //     var elts = document.getElementsByClassName('test')
+            //  Array.from(elts).forEach(function(elt){
+            //    elt.addEventListener("keyup", function(event) {
+            //      // Number 13 is the "Enter" key on the keyboard
+            //      if (event.keyCode === 13 || elt.value.length == 8) {
+            //        // Focus on the next sibling
+            //        elt.nextElementSibling.focus()
+            //      }
+            //    });
+            //  })
+            // document.querySelectorAll('input').forEach( el => {
+            //         console.log(el)
+            //         el.addEventListener('keydown', e => {
+            //             console.log(e.keyCode);
+            //             if(e.keyCode === 13) {
+            //                 let nextEl = el.nextElementSibling;
+            //                 console.log(nextEl)
+            //                 if(nextEl.nodeName === 'INPUT') {
+            //                     nextEl.focus();
+            //                 }else {
+            //                     alert('done');
+            //                 }
+            //             }
+            //         })
+            //     })
+        
+            function tabE(obj,e){ 
+           var e=(typeof event!='undefined')?window.event:e;// IE : Moz 
+           if(e.keyCode==13){ 
+             var ele = document.forms[0].elements; 
+             for(var i=0;i<ele.length;i++){ 
+               var q=(i==ele.length-1)?0:i+1;// if last element : if any other 
+               if(obj==ele[i]){ele[q].focus();break} 
+             } 
+          return false; 
+           } 
+          } 
+                </script>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.day a{color: #000;}
+#sign_up{color: #000}
+.top1{background-color: #000;
+height: 20px;}
+.top{ font-family:'Times New Roman', Times, serif;
+    text-decoration: none;
+height: 30px;
+background-color: #000;
+color: #c8c8c8;
+text-align: center;
+font-weight: bold;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e3e3e3;
+    min-height: 100vh;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    width: 350px;
+    flex-direction: column;
+    gap: 35px;
+    border-radius: 15px;
+    background: #e3e3e3;
+    box-shadow: 3px 3px 6px black,
+        -3px 3px 6px black;
+}
+
+.inputBox {
+    position: relative;
+    width: 250px;
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 1em;
+    background: transparent;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transition: 0.1s;
+    border-radius: 20px;
+}
+
+.inputBox span {
+    margin-top: 5px;
+    position: absolute;
+    left: 0;
+    transform: translateY(-4px);
+    margin-left: 10px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 12px;
+    color: #0000007b;
+    transition: 0.5s;
+    letter-spacing: 3px;
+    border-radius: 20px;
+    
+}
+
+/*
+
+A tilde = ~ -----> On mac = option + n 
+
+*/
+
+.inputBox input:valid~span,
+.inputBox input:focus~span {
+    transform: translateX(113px) translateY(-15px);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background: #000;
+    letter-spacing: 0.2em;
+    color: #fff;
+    border: 2px;
+}
+
+.inputBox input:valid,
+.inputBox input:focus {
+    border: 2px solid #000;
+}
+
+button {
+    height: 45px;
+    width: 210px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    cursor: pointer;
+    background-color: transparent;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background-color: #000;
+    color: white;
+}
+
+    </style>   
+
+<p>
+    {{fname}}
+</p>
+        <form action="/addRooms" method="post">
+             {% csrf_token %}
+<center>
+    <div class="container">
+        <div class="card">
+            <h3>Venues</h3>
+
+            <label>Enter Available venues</label>
+            <div class="inputBox">
+            <input type="text" required="required" class="test" id="0"  onkeypress="return tabE(this,event)"  name="venue_1">
+            <span>Venue 1: </span>
+        </div>
+            <div class="inputBox">
+            <input type="text" required="required" class="test" id="0"  onkeypress="return tabE(this,event)"  name="venue_2">
+            <span>Venue 2 : </span>
+        </div>
+            <div class="inputBox">
+            <input type="text" required="required" class="test" id="0"  onkeypress="return tabE(this,event)"  name="venue_3">
+            <span>Venue 3 : </span>
+        </div>
+            <div class="inputBox">
+            <input type="text"  required="required" class="test" id="0"  onkeypress="return tabE(this,event)" name="venue_4">
+            <span>Venue 4 : </span>
+        </div>
+            <div class="inputBox">
+            <input type="text" required="required" class="test" id="0"  onkeypress="return tabE(this,event)"  name="venue_5">
+            <span>Venue 5: </span>
+        </div>
+            <button type="submit">Append Venues and proceed</button>
+</center>
+
+    <body>
+
+</html>

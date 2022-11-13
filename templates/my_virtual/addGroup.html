@@ -1,0 +1,157 @@
+<html>
+    <html lang="en">
+        <head>
+          <link rel="stylesheet" href="addgroup.css">
+
+          <meta charset="UTF-8">
+
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        </head>
+<body>
+    <script>
+        //     var elts = document.getElementsByClassName('test')
+        //  Array.from(elts).forEach(function(elt){
+        //    elt.addEventListener("keyup", function(event) {
+        //      // Number 13 is the "Enter" key on the keyboard
+        //      if (event.keyCode === 13 || elt.value.length == 8) {
+        //        // Focus on the next sibling
+        //        elt.nextElementSibling.focus()
+        //      }
+        //    });
+        //  })
+        // document.querySelectorAll('input').forEach( el => {
+        //         console.log(el)
+        //         el.addEventListener('keydown', e => {
+        //             console.log(e.keyCode);
+        //             if(e.keyCode === 13) {
+        //                 let nextEl = el.nextElementSibling;
+        //                 console.log(nextEl)
+        //                 if(nextEl.nodeName === 'INPUT') {
+        //                     nextEl.focus();
+        //                 }else {
+        //                     alert('done');
+        //                 }
+        //             }
+        //         })
+        //     })
+    
+        function tabE(obj,e){ 
+       var e=(typeof event!='undefined')?window.event:e;// IE : Moz 
+       if(e.keyCode==13){ 
+         var ele = document.forms[0].elements; 
+         for(var i=0;i<ele.length;i++){ 
+           var q=(i==ele.length-1)?0:i+1;// if last element : if any other 
+           if(obj==ele[i]){ele[q].focus();break} 
+         } 
+      return false; 
+       } 
+      } 
+            </script>
+<style>
+    
+    body{
+    background-color : #e3e3e3;
+margin: 0;}
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    background: #e3e3e3;
+    height: 400px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    width: 350px;
+    flex-direction: column;
+    border-radius: 15px;
+    background: #e3e3e3;
+    box-shadow: 3px 3px 6px black,
+          -3px 3px 6px black;
+    padding-bottom:20px;      
+}
+.inputBox {
+    position: relative;
+    width: 250px;
+}
+
+.test {
+    width: 200px;
+    margin-top: 20px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 1em;
+    background: transparent;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transition: 0.1s;
+    border-radius: 12px;
+    
+}
+    button {
+        margin-top:40px;
+        height: 45px;
+        width: 200px;
+        border-radius: 5px;
+        border: 2px solid #000;
+        cursor: pointer;
+        background-color: transparent;
+        transition: 0.5s;
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 2px;
+
+    }
+    
+    button:hover {
+        background-color: #000;
+        color: white;
+    }
+
+    .gr{font-size: 20px}
+
+</style>
+<form action="/addGroup" method="post">
+    {% csrf_token %}
+    <center>
+        <div class="container">
+            <div class="card">
+                <h3>Groups</h3>
+   <div class="bod">
+    <label class = "gr">Enter the -4-  Groups</label>
+    <div class="inputBox">
+    <input type="text" placeholder=" ENTER GROUP ID" class="test" id="0" maxlength="8" onkeypress="return tabE(this,event)" name="group_1">
+    
+</div>
+    <div class="inputBox">
+    <input type="text"  placeholder=" ENTER GROUP ID" class="test" id="0" maxlength="8" onkeypress="return tabE(this,event)" name="group_2">
+    
+</div>
+    <div class="inputBox">
+     <input type="text" placeholder=" ENTER GROUP ID"  class="test" id="0" maxlength="8" onkeypress="return tabE(this,event)" name="group_3">
+    
+    </div>
+    <div class="inputBox">
+        <input type="text"  placeholder=" ENTER GROUP ID" class="test" id="0" maxlength="8" onkeypress="return tabE(this,event)" name="group_4">
+    </div>
+    <button type="submit">Append group and proceed</button>
+   </center>
+</div>
+</div>
+</div>
+</form>
+</body>
+
+
+
+</html>

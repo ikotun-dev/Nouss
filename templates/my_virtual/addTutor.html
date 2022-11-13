@@ -1,0 +1,104 @@
+<html>
+    <style>
+        body{
+            margin-top: 30px;
+        }
+        .card {
+            display: flex;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+            width: 300px;
+            flex-direction: column;
+            gap: 2px;
+            border-radius: 15px;
+            background: #e3e3e3;
+            box-shadow: 3px 3px 6px black,
+                -3px 3px 6px black;
+        }
+        .inputBox input {
+            width: 100%;
+            padding: 7px;
+            outline: none;
+            border: none;
+            color: #000;
+            font-size: 1em;
+            background: transparent;
+            border-top: 2px solid #000;
+            border-left: 2px solid #000;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            transition: 0.1s;
+            border-radius: 15px;
+        }
+
+    </style>
+<body>
+    <center>
+    <form action="/addTutor" method="post">
+        {% csrf_token %}
+        <div class="card">
+            <label>Tutor for {{c1}} </label>
+            <div class="inputBox">
+            <input name="c1_tutor" type="text">
+            </div>
+            <br>
+            <label>Tutor for {{c2}} </label>
+            <div class="inputBox">
+            <input name="c2_tutor" type="text">
+            </div>
+            <br>
+            <label>Tutor for {{c3}} </label>
+            <div class="inputBox">
+            <input name="c3_tutor" type="text">
+            </div>
+            <br>
+            <label>Tutor for {{c4}}</label>
+            <div class="inputBox">
+            <input name="c4_tutor" type="text">
+            </div>
+            <br>
+            <label>Tutor for {{c5}} </label>
+            <div class="inputBox">
+            <input name="c5_tutor" type="text">
+            </div>
+            <br>
+            <div class="inputBox">
+            <label>Tutor for{{c6}}</label>
+            </div>
+            <div class="inputBox">
+            <input name="c6_tutor" type="text">
+            </div>
+            <br>
+            <div class="inputBox">
+            <label>Tutor for {{c8}} </label>
+            </div>
+            <div class="inputBox">
+            <input name="c7_tutor" type="text">
+            </div>
+            <br>
+            <label>Tutor for {{c9}} </label>
+            <div class="inputBox">
+            <input name="c8_tutor" type="text">
+            </div>
+            <br>
+            <label>Tutor for {{c10}} </label>
+            <div class="inputBox">
+            <input name="c9_tutor" type="text">
+            </div>
+            <br>
+        
+           <button type="submit">Append and add groups</button>
+
+           <form>
+            <input type=button value="Print me!" onClick="javascript:window.print()">
+            </form>
+            
+        </div>
+    </form>
+</center>
+</body>
+
+
+</html>

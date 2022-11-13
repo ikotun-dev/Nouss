@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="addcourses.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //     var elts = document.getElementsByClassName('test')
+    //  Array.from(elts).forEach(function(elt){
+    //    elt.addEventListener("keyup", function(event) {
+    //      // Number 13 is the "Enter" key on the keyboard
+    //      if (event.keyCode === 13 || elt.value.length == 8) {
+    //        // Focus on the next sibling
+    //        elt.nextElementSibling.focus()
+    //      }
+    //    });
+    //  })
+    // document.querySelectorAll('input').forEach( el => {
+    //         console.log(el)
+    //         el.addEventListener('keydown', e => {
+    //             console.log(e.keyCode);
+    //             if(e.keyCode === 13) {
+    //                 let nextEl = el.nextElementSibling;
+    //                 console.log(nextEl)
+    //                 if(nextEl.nodeName === 'INPUT') {
+    //                     nextEl.focus();
+    //                 }else {
+    //                     alert('done');
+    //                 }
+    //             }
+    //         })
+    //     })
+
+    function tabE(obj,e){ 
+   var e=(typeof event!='undefined')?window.event:e;// IE : Moz 
+   if(e.keyCode==13){ 
+     var ele = document.forms[0].elements; 
+     for(var i=0;i<ele.length;i++){ 
+       var q=(i==ele.length-1)?0:i+1;// if last element : if any other 
+       if(obj==ele[i]){ele[q].focus();break} 
+     } 
+  return false; 
+   } 
+  } 
+        </script>
+</head>
+<body>
+  <style>
+    body{
+    background-color : #e3e3e3;
+margin: 0;}
+    .bod{height: 600px;}
+    .top1{background-color: #000;
+        height: 20px;}
+        .top{ font-family:'Times New Roman', Times, serif;
+            text-decoration: none;
+        height: 30px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+    font-size: 25px;}
+    button {
+      margin-top: 20px;
+        height: 40px;
+        width: 200px;
+        border-radius: 5px;
+        border: 2px solid #000;
+        border-radius: 15px;
+        cursor: pointer;
+        background-color: transparent;
+        transition: 0.5s;
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    h2{ font-size: 17px;}
+    
+    button:hover {
+        background-color: #000;
+        color: white;
+    }
+
+    .card {
+      margin-top:15px;
+      padding-top:20px;
+      padding-bottom:35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 600px;
+      width: 350px;
+      flex-direction: column;
+      border-radius: 15px;
+      background: #e3e3e3;
+      box-shadow: 3px 3px 6px black,
+          -3px 3px 6px black;
+  }
+
+  .test{border-radius: 7px;}
+  </style>
+  <div class="top1">hj</div>
+  <div class="top">COURSE SELECTION</div>
+    <form action="/addCourses" method="post">
+      {% csrf_token %}
+      <div class="bod">
+      <center>
+  <div class ="card">
+      <h2>Course-1-code (3 unit)</h2><input type="text" required="required" class="test" id="0" maxlength="8" onkeypress="return tabE(this,event)" name="course_1">
+
+      <h2>Course-2-code (3 unit)</h2><input type="text" required="required" class="test" id="1" maxlength="8" onkeypress="return tabE(this,event)" name="course_2">
+
+      <h2>Course-3-code (3 unit)</h2><input type="text" required="required" class="test" id="2" maxlength="8" onkeypress="return tabE(this,event)" name="course_3">
+
+      <h2>Course-4-code (3 unit)</h2><input type="text" required="required" class="test" id="3" maxlength="8" onkeypress="return tabE(this,event)" name="course_4">
+
+      <h2>Course-5-code (3 unit)</h2><input type="text" required="required" class="test" id="4" maxlength="8" onkeypress="return tabE(this,event)" name="course_5">
+
+      <h2>Course-6-code (3 unit)</h2><input type="text" required="required" class="test" id="5" maxlength="8" onkeypress="return tabE(this,event)" name="course_6">
+
+      <h2>Course-7-code (2 unit)</h2><input type="text" required="required" class="test" id="6" maxlength="8" onkeypress="return tabE(this,event)" name="course_8">
+
+      <h2>Course-8-code (2 unit)</h2><input type="text" required="required" class="test" id="7" maxlength="8" onkeypress="return tabE(this,event)" name="course_9">
+
+      <h2>Course-9-code (2 unit)</h2><input type="text" required="required" class="test" id="8" maxlength="8" onkeypress="return tabE(this,event)" name="course_10">
+    </form>
+  </div>   
+<button type="submit">Append Courses & Proceed</button>
+</div>
+</center>
+</body>
+</html>
